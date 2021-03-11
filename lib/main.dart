@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:practice_flutter/sub/firstPage.dart';
+import 'package:practice_flutter/sub/secondPage.dart';
+import './marvel_movie.dart';
 
 void main() {
   runApp(MyApp());
@@ -49,69 +52,68 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Listview Example'),
+        ),
+        body: TabBarView(
+          children: <Widget>[FirstApp(list: marvelList),
+          SecondApp(list: marvelList)],
+          controller: controller,
+        ),
+        bottomNavigationBar: TabBar(
+          tabs: <Tab>[
+            Tab(
+                icon: Icon(
+              Icons.looks_one,
+              color: Colors.blue,
+            )),
+            Tab(
+              icon: Icon(
+                Icons.looks_two,
+                color: Colors.blue,
+              ),
+            )
+          ],
+          controller: controller,
+        ));
+  }
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  TabController controller;
+  List<Marvel> marvelList = List();
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(length: 2, vsync: this);
+
+    marvelList.add(Marvel(
+      movieName: '아이언맨', movietime: '126m', imagePath: 'assets/ironman.jpeg'
+    ));
+    marvelList.add(Marvel(
+      movieName: '어벤저스', movietime: '186m', imagePath: 'assets/avengers_endgame.jpg'
+    ));
+    marvelList.add(Marvel(
+      movieName: '스파이더맨 파프롬 홈', movietime: '136m', imagePath: 'assets/farfromhome.jpeg'
+    ));
+    marvelList.add(Marvel(
+      movieName: '스파이더맨 홈 커밍', movietime: '116m', imagePath: 'assets/homecomming.jpeg'
+    ));
+    marvelList.add(Marvel(
+      movieName: '토르 라그나로크', movietime: '113m', imagePath: 'assets/thorrag.jpg'
+    ));
+    marvelList.add(Marvel(
+      movieName: '완다 비전', movietime: '26m', imagePath: 'assets/wandavision.jpeg'
+    ));
   }
 
   @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
