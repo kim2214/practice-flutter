@@ -61,8 +61,10 @@ class _MyHomePageState extends State<MyHomePage>
           title: Text('Listview Example'),
         ),
         body: TabBarView(
-          children: <Widget>[FirstApp(list: marvelList),
-          SecondApp(list: marvelList)],
+          children: <Widget>[
+            FirstApp(list: marvelList),
+            SecondApp(list: marvelList)
+          ],
           controller: controller,
         ),
         bottomNavigationBar: TabBar(
@@ -92,23 +94,29 @@ class _MyHomePageState extends State<MyHomePage>
     controller = TabController(length: 2, vsync: this);
 
     marvelList.add(Marvel(
-      movieName: '아이언맨', movietime: '126m', imagePath: 'assets/ironman.jpeg'
-    ));
+        movieName: '아이언맨',
+        movietime: '126m',
+        imagePath: 'assets/ironman.jpeg'));
     marvelList.add(Marvel(
-      movieName: '어벤저스', movietime: '186m', imagePath: 'assets/avengers_endgame.jpg'
-    ));
+        movieName: '어벤저스',
+        movietime: '186m',
+        imagePath: 'assets/avengers_endgame.jpg'));
     marvelList.add(Marvel(
-      movieName: '스파이더맨 파프롬 홈', movietime: '136m', imagePath: 'assets/farfromhome.jpeg'
-    ));
+        movieName: '스파이더맨 파프롬 홈',
+        movietime: '136m',
+        imagePath: 'assets/farfromhome.jpeg'));
     marvelList.add(Marvel(
-      movieName: '스파이더맨 홈 커밍', movietime: '116m', imagePath: 'assets/homecomming.jpeg'
-    ));
+        movieName: '스파이더맨 홈 커밍',
+        movietime: '116m',
+        imagePath: 'assets/homecomming.jpeg'));
     marvelList.add(Marvel(
-      movieName: '토르 라그나로크', movietime: '113m', imagePath: 'assets/thorrag.jpg'
-    ));
+        movieName: '토르 라그나로크',
+        movietime: '113m',
+        imagePath: 'assets/thorrag.jpg'));
     marvelList.add(Marvel(
-      movieName: '완다 비전', movietime: '26m', imagePath: 'assets/wandavision.jpeg'
-    ));
+        movieName: '완다 비전',
+        movietime: '26m',
+        imagePath: 'assets/wandavision.jpeg'));
   }
 
   @override
