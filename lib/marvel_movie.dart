@@ -6,8 +6,7 @@ class Marvel {
   String movietime; // 영화 러닝타임
 
   Marvel(
-    {@required this.movieName,
-  @required this.movietime,
-  @required this.imagePath
-  });
+      {@required this.movieName,
+      @required this.movietime,
+      @required this.imagePath});
 }
