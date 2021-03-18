@@ -32,6 +32,9 @@ dependencies:
   # password encrypt
   flutter_string_encryption: ^0.3.1
 
+  # toast메시지 라이브러리
+  fluttertoast: ^7.1.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

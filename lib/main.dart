@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_string_encryption/flutter_string_encryption.dart';
 import 'package:practice_flutter/sub/login_view.dart';
+import 'package:practice_flutter/sub/sign_in_view.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -52,6 +53,8 @@ class MyApp extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SigninView()));
                   Encrypt();
                   // print('here is main $encryptPassword');
                 },
@@ -65,10 +68,10 @@ class MyApp extends StatelessWidget {
     // #enddocregion titleSection
 
     return MaterialApp(
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        '/a': (BuildContext context) => LoginView(title: 'Login Page'),
-      },
+      // initialRoute: '/',
+      // routes: <String, WidgetBuilder>{
+      //   '/a': (BuildContext context) => LoginView(title: 'Login Page'),
+      // },
       title: 'Kyusoo To-Do List App',
       home: Scaffold(
         appBar: AppBar(
