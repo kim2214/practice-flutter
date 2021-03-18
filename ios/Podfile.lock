@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_string_encryption (0.0.1):
+    - Flutter
+    - SCrypto (~> 2.0)
+  - SCrypto (2.0.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_string_encryption (from `.symlinks/plugins/flutter_string_encryption/ios`)
+
+SPEC REPOS:
+  trunk:
+    - SCrypto
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_string_encryption:
+    :path: ".symlinks/plugins/flutter_string_encryption/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_string_encryption: e382d87149c0d6b947204315e6c601a9c4792655
+  SCrypto: 8287dcf6151df38f9bc0efad2ed982c54a96d1b8
+
+PODFILE CHECKSUM: bb5a4b81250c052a6b73ee8c4b448a4ea11e5f3a
+
+COCOAPODS: 1.9.1
