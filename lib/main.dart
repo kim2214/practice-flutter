@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_string_encryption/flutter_string_encryption.dart';
-import 'package:practice_flutter/sub/login_view.dart';
+import 'package:practice_flutter/sub/main_view.dart';
 import 'package:practice_flutter/sub/sign_in_view.dart';
 
 void main() {
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginView()));
+                      MaterialPageRoute(builder: (context) => MainView()));
                       Decrypt();
                 },
                 child: Text("로그인"),
