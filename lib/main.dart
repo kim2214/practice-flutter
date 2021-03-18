@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_string_encryption/flutter_string_encryption.dart';
 import 'package:practice_flutter/sub/login_view.dart';
 
 void main() {
@@ -8,6 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  TextEditingController passwordController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
           ),
           Container(
             child: TextField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -43,11 +46,15 @@ class MyApp extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LoginView()));
+                      Decrypt();
                 },
                 child: Text("로그인"),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Encrypt();
+                  // print('here is main $encryptPassword');
+                },
                 child: Text("회원가입"),
               ),
             ],
@@ -74,5 +81,29 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  var passkey = "null";
+  String encryptedS, decryptedS;
+  var password = "null";
+  PlatformStringCryptor cryptor;
+// method to Encrypt String Password
+  void Encrypt() async {
+    cryptor = PlatformStringCryptor();
+    final salt = await cryptor.generateSalt();
+    password = passwordController.text;
+    passkey = await cryptor.generateKeyFromPassword(password, salt);
+    // here pass the password entered by user and the key
+    encryptedS = await cryptor.encrypt(password, passkey);
+    print(encryptedS);
+  }
+
+// method to decrypt String Password
+  void Decrypt() async {
+    try {
+      //here pass encrypted string and the key to decrypt it
+      decryptedS = await cryptor.decrypt(encryptedS, passkey);
+      print(decryptedS);
+    } on MacMismatchException {}
   }
 }
