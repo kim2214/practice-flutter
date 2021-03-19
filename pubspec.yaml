@@ -32,6 +32,9 @@ dependencies:
   # password encrypt
   flutter_string_encryption: ^0.3.1
 
+  # toast메시지 라이브러리
+  fluttertoast: ^7.1.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -41,8 +44,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:
-    - assets/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
